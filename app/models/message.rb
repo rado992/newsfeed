@@ -1,4 +1,4 @@
-class User
+class Message
   include Mongoid::Document
   belongs_to :user
   field :content, type: String
