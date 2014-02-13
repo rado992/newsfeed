@@ -3,6 +3,7 @@ Newsfeed::Application.routes.draw do
   # match '/', to: 'static_pages#home', via: 'get'
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :messages, only: [:create]
   root :to => 'static_pages#home'
   match '/home',    to: 'static_pages#home', via: 'get'
   match '/signup',  to: 'users#new',         via: 'get'

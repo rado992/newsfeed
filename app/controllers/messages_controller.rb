@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
+  before_action :signed_in_user
   def index
     @messages = Message.all
 

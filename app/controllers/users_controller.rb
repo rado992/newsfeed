@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @messages = Messages.desc(:created_at).limit(20)
+    @messages = Message.asc(:created_at).limit(20)
   end
   def new
     @user = User.new

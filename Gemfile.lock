@@ -88,6 +88,8 @@ GEM
     rake (10.1.1)
     rdoc (3.12.2)
       json (~> 1.4)
+    rufus-scheduler (3.0.5)
+      tzinfo
     sass (3.2.14)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -121,6 +123,7 @@ DEPENDENCIES
   jquery-rails
   mongoid
   rails (= 3.2.16)
+  rufus-scheduler
   sass-rails (~> 3.2.3)
   turbolinks
   uglifier (>= 1.0.3)

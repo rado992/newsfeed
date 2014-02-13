@@ -4,6 +4,7 @@ gem 'rails', '3.2.16'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'turbolinks'
+gem 'rufus-scheduler'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
