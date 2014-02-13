@@ -26,6 +26,9 @@ end
 gem 'jquery-rails'
 #gem 'mongoid-encrypted-fields'
 gem 'gibberish'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

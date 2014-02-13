@@ -7,9 +7,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    # my_params = user_params
-    # @user = User.new(user_params)
     @user = User.new(params[:user])
+    @user.encrypt
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to NewsfeeD!"
@@ -22,6 +21,6 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password)
     end
 end
