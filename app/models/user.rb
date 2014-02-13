@@ -1,10 +1,13 @@
 class User
   include Mongoid::Document
+  has_many :messages
   # include BCrypt
   # include ActiveModel::SecurePassword
   before_create :create_remember_token
+  #validate :passwords_same
   field :name, type: String
   validates :name, presence: true, length: {maximum: 50}, uniqueness: true
+  validates_presence_of :password, :password_confirmation
   # uniqueness: {case_sensitive: false}
   # index({ ssn: 1 }, { unique: true, name: "ssn_index" })
   # include ActiveModel::SecurePassword
@@ -22,7 +25,12 @@ class User
   end
 
   private
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
+
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_remember_token)
+  end
+
+  def passwords_same
+    password == password_confirmation
+  end
 end
