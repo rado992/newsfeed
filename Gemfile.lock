@@ -33,6 +33,8 @@ GEM
     bcrypt-ruby (3.1.2-x86-mingw32)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.9)
+      will_paginate
     builder (3.0.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -123,6 +125,7 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   x86-mingw32
@@ -132,6 +135,7 @@ DEPENDENCIES
   bootstrap-sass (= 2.3.2.0)
   carrierwave
   carrierwave-mongoid
+  bootstrap-will_paginate (= 0.0.9)
   coffee-rails (~> 3.2.1)
   gibberish
   jquery-rails

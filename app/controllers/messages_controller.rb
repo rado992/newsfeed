@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
-  before_action :signed_in_user
+  before_filter :signed_in_user, only: [:create]
   def index
     @messages = Message.all
 
@@ -38,19 +38,14 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
   end
 
-  # POST /messages
-  # POST /messages.json
-  def create
-    @message = Message.new(params[:message])
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render json: @message, status: :created, location: @message }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+  def create
+    @message = current_user.messages.create(params[:message]) #micropost_params)
+    if @message.save
+      # flash[:success] = "Message created!"
+      redirect_to root_url
+    else
+      render 'static_pages/home'
     end
   end
 
