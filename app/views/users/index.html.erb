@@ -7,8 +7,10 @@
   <% res.each do |usr| %>
     <li>
       <aside class="span6">
-      	<%= link_to usr["_id"], usr["_id"].to_s %>
-      	<%= usr["count"] %>
+      	<%= link_to User.find(usr["_id"]).name, usr["_id"].to_s %>
+      	<% del = User.find(usr["_id"]).blocks %>
+      	<% del = 0.1 if del == 0 %>
+      	<%= usr["count"] / (del * del)%>
       </aside>
     </li>
   <% end %>
