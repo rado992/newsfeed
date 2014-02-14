@@ -8,12 +8,12 @@ class User
   field :password, type: String
   field :remember_token, type: String
   field :avatar, type: String
-  field :blocked, type: Array
+  field :blocked, type: Array, default: []
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :password, length: { minimum: 4, maximum: 50 }, presence: true
 
-  attr_accessible :name, :password#, :avatar, :avatar, :avatar_cache
+  attr_accessible :name, :password, :avatar, :blocked
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
