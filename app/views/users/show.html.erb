@@ -1,17 +1,13 @@
 <% provide(:title, @user.name) %>
 <!-- <meta http-equiv="refresh" content="3"> -->
 <div class="row">
-  <aside class="span4">
-    <section>
       <h1>
         <%= @user.name %>
       </h1>
-    </section>
-    <section>
-      
-    </section>
-  </aside>
-  <div class="span8">
-  	<%= render 'block_form' if signed_in? %>
-  </div>
+      <% if @feed_items %>
+        <ol class="messages">
+          <%= render partial: 'shared/feed_item', collection: @feed_items %>
+        </ol>
+      <% end %>
 </div>
+

@@ -2,9 +2,14 @@
 <h1>All users</h1>
 
 <ul class="users">
-  <% @user.each do |user| %>
+  <% group = {"$group" => {"_id" => "$user_id", "count" => {"$sum" => "$likes"}}} %>
+  <% res = Message.collection.aggregate([group]) %>
+  <% res.each do |usr| %>
     <li>
-      <%= link_to user.name, user %>
+      <aside class="span6">
+      	<%= link_to usr["_id"], usr["_id"].to_s %>
+      	<%= usr["count"] %>
+      </aside>
     </li>
   <% end %>
 </ul>

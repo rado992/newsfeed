@@ -53,16 +53,8 @@ class MessagesController < ApplicationController
   # PUT /messages/1.json
   def update
     @message = Message.find(params[:id])
-
-    respond_to do |format|
-      if @message.update_attributes(params[:message])
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
-    end
+    @message.inc(:likes, 1)
+    redirect_to root_path
   end
 
   # DELETE /messages/1
