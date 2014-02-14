@@ -133,9 +133,9 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
+  bootstrap-will_paginate (= 0.0.9)
   carrierwave
   carrierwave-mongoid
-  bootstrap-will_paginate (= 0.0.9)
   coffee-rails (~> 3.2.1)
   gibberish
   jquery-rails

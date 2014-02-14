@@ -40,7 +40,7 @@ class MessagesController < ApplicationController
 
 
   def create
-    @message = current_user.messages.create(params[:message]) #micropost_params)
+    @message = current_user.messages.build(params[:message]) #micropost_params)
     if @message.save
       # flash[:success] = "Message created!"
       redirect_to root_url

@@ -1,5 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-    @message = current_user.messages.create if signed_in?
+    if signed_in?
+    	@message = current_user.messages.build
+    	@feed_items = Message.nin(id: current_user.blocked).desc(:created_at).limit(6) #Message.all
+    end
   end
 end
