@@ -1,4 +1,4 @@
 <%= form_for(current_user) do |f| %>
-  <% current_user.push(:blocked, @user.id) %>
+  <%= f.hidden_field 'block', value: @user.name %>
   <%= f.submit "Block", class: "btn btn-large btn-primary" %>
 <% end %>

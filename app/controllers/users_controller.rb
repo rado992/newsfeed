@@ -33,6 +33,12 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(params[:user])
+      if params[:user][:block]
+        @user.push :blocked, User.where(name: params[:user][:block]).first.id
+      end
+      if params[:user][:unblock]
+        @user.pull :blocked, User.where(name: params[:user][:unblock]).first.id
+      end
       flash[:success] = "Profile updated"
       redirect_to @user
     else
