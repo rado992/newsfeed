@@ -8,6 +8,7 @@ class User
   field :password, type: String
   field :remember_token, type: String
   field :avatar, type: String
+  field :blocks, type: Integer, default: 0
   field :blocked, type: Array, default: []
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
