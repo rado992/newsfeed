@@ -1,0 +1,12 @@
+<% unless current_user?(@user) %>
+  <div id="block_form">
+    <% current_user.blocked.each do |x| %>
+      <p></p>
+    <% end %>
+    <% if current_user.blocked.include?(@user.id) %>
+      <%= render 'unblock' %>
+    <% else %>
+      <%= render 'block' %>
+    <% end %>
+  </div>
+<% end %>

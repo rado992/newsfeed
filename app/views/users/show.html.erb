@@ -7,13 +7,11 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section>
+      
+    </section>
   </aside>
   <div class="span8">
-      <h3>Messages</h3>
-      <ol class="messages">
-      	<%= render @messages %>
-      </ol>
+  	<%= render 'block_form' if signed_in? %>
   </div>
 </div>
-
-  
