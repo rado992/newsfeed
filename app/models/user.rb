@@ -37,6 +37,11 @@ class User
     password
   end
 
+  def authenticate given_password
+    cipher = Gibberish::AES.new("p4ssw0rd")
+    given_password == cipher.dec(password)
+  end
+
   private
 
     def create_remember_token
